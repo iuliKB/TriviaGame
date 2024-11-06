@@ -1,0 +1,17 @@
+Care este capitala Franței?;Paris;Londra;Berlin;Madrid;0;Usor
+Câte zile are o săptămână?;5;6;7;8;2;Usor
+Care este rezultatul lui 5 + 3?;6;7;8;9;2;Usor
+Ce culoare are iarba?;Roșu;Verde;Albastru;Galben;1;Usor
+Câte anotimpuri sunt într-un an?;2;3;4;5;2;Usor
+
+Care este cel mai mare ocean?;Oceanul Atlantic;Oceanul Indian;Oceanul Arctic;Oceanul Pacific;3;Mediu
+Ce țară este cunoscută pentru Turnul Eiffel?;Germania;Franța;Italia;Spania;1;Mediu
+Cine a pictat „Cina cea de Taină”?;Leonardo da Vinci;Michelangelo;Raphael;Van Gogh;0;Mediu
+Care este rădăcina pătrată a lui 144?;10;11;12;13;2;Mediu
+Ce planetă este cunoscută ca Planeta Roșie?;Jupiter;Venus;Marte;Saturn;2;Mediu
+
+Cine a scris „Odiseea”?;Homer;Socrate;Platon;Aristotel;0;Dificil
+Care este cea mai lungă râu din lume?;Amazon;Nile;Mississippi;Yangtze;1;Dificil
+Ce metal are simbolul chimic „Au”?;Argint;Platină;Aur;Fier;2;Dificil
+Cine a compus Simfonia a 9-a?;Mozart;Bach;Beethoven;Chopin;2;Dificil
+În ce an a avut loc căderea Zidului Berlinului?;1987;1988;1989;1990;2;Dificil

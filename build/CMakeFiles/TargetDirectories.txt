@@ -1,0 +1,3 @@
+/Users/iulian/Univer/PAOO/TriviaGame/build/CMakeFiles/TriviaGame.dir
+/Users/iulian/Univer/PAOO/TriviaGame/build/CMakeFiles/edit_cache.dir
+/Users/iulian/Univer/PAOO/TriviaGame/build/CMakeFiles/rebuild_cache.dir
