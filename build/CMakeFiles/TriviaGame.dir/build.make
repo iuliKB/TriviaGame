@@ -73,29 +73,29 @@ CMakeFiles/TriviaGame.dir/src/main.cpp.o: CMakeFiles/TriviaGame.dir/flags.make
 CMakeFiles/TriviaGame.dir/src/main.cpp.o: /Users/iulian/Univer/PAOO/TriviaGame/src/main.cpp
 CMakeFiles/TriviaGame.dir/src/main.cpp.o: CMakeFiles/TriviaGame.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/iulian/Univer/PAOO/TriviaGame/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/TriviaGame.dir/src/main.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TriviaGame.dir/src/main.cpp.o -MF CMakeFiles/TriviaGame.dir/src/main.cpp.o.d -o CMakeFiles/TriviaGame.dir/src/main.cpp.o -c /Users/iulian/Univer/PAOO/TriviaGame/src/main.cpp
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TriviaGame.dir/src/main.cpp.o -MF CMakeFiles/TriviaGame.dir/src/main.cpp.o.d -o CMakeFiles/TriviaGame.dir/src/main.cpp.o -c /Users/iulian/Univer/PAOO/TriviaGame/src/main.cpp
 
 CMakeFiles/TriviaGame.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TriviaGame.dir/src/main.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/iulian/Univer/PAOO/TriviaGame/src/main.cpp > CMakeFiles/TriviaGame.dir/src/main.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/iulian/Univer/PAOO/TriviaGame/src/main.cpp > CMakeFiles/TriviaGame.dir/src/main.cpp.i
 
 CMakeFiles/TriviaGame.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TriviaGame.dir/src/main.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/iulian/Univer/PAOO/TriviaGame/src/main.cpp -o CMakeFiles/TriviaGame.dir/src/main.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/iulian/Univer/PAOO/TriviaGame/src/main.cpp -o CMakeFiles/TriviaGame.dir/src/main.cpp.s
 
 CMakeFiles/TriviaGame.dir/src/Intrebare.cpp.o: CMakeFiles/TriviaGame.dir/flags.make
 CMakeFiles/TriviaGame.dir/src/Intrebare.cpp.o: /Users/iulian/Univer/PAOO/TriviaGame/src/Intrebare.cpp
 CMakeFiles/TriviaGame.dir/src/Intrebare.cpp.o: CMakeFiles/TriviaGame.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/iulian/Univer/PAOO/TriviaGame/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/TriviaGame.dir/src/Intrebare.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TriviaGame.dir/src/Intrebare.cpp.o -MF CMakeFiles/TriviaGame.dir/src/Intrebare.cpp.o.d -o CMakeFiles/TriviaGame.dir/src/Intrebare.cpp.o -c /Users/iulian/Univer/PAOO/TriviaGame/src/Intrebare.cpp
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TriviaGame.dir/src/Intrebare.cpp.o -MF CMakeFiles/TriviaGame.dir/src/Intrebare.cpp.o.d -o CMakeFiles/TriviaGame.dir/src/Intrebare.cpp.o -c /Users/iulian/Univer/PAOO/TriviaGame/src/Intrebare.cpp
 
 CMakeFiles/TriviaGame.dir/src/Intrebare.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TriviaGame.dir/src/Intrebare.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/iulian/Univer/PAOO/TriviaGame/src/Intrebare.cpp > CMakeFiles/TriviaGame.dir/src/Intrebare.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/iulian/Univer/PAOO/TriviaGame/src/Intrebare.cpp > CMakeFiles/TriviaGame.dir/src/Intrebare.cpp.i
 
 CMakeFiles/TriviaGame.dir/src/Intrebare.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TriviaGame.dir/src/Intrebare.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/iulian/Univer/PAOO/TriviaGame/src/Intrebare.cpp -o CMakeFiles/TriviaGame.dir/src/Intrebare.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/iulian/Univer/PAOO/TriviaGame/src/Intrebare.cpp -o CMakeFiles/TriviaGame.dir/src/Intrebare.cpp.s
 
 # Object files for target TriviaGame
 TriviaGame_OBJECTS = \
