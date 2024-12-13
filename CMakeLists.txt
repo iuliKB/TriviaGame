@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 project(TriviaGame)
 
 # aici setam standartul C++
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 14)
 
 # aici adaugamfișierele sursă
 set(SOURCES src/main.cpp src/Intrebare.cpp)

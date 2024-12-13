@@ -1,15 +1,15 @@
-
 #include "Intrebare.h"
-#include "Obiect.h"
 #include <iostream>
 #include <vector>
-#include <string>
+#include <memory>  // Pentru smart pointers
 #include <fstream>
 #include <sstream>
+#include <thread>
+#include <mutex>
 
-
-std::vector<Intrebare> incarcaIntrebariDinFisier(const std::string& nivelDificultate) {
-    std::vector<Intrebare> intrebari;
+// Funcția pentru încărcarea întrebărilor din fișier
+std::vector<std::shared_ptr<Intrebare>> incarcaIntrebariDinFisier(const std::string& nivelDificultate) {
+    std::vector<std::shared_ptr<Intrebare>> intrebari;
     std::ifstream file("intrebari.txt");
 
     if (!file) {
@@ -34,112 +34,85 @@ std::vector<Intrebare> incarcaIntrebariDinFisier(const std::string& nivelDificul
 
         if (dificult == nivelDificultate) {
             std::vector<std::string> optiuni = {opt1, opt2, opt3, opt4};
-            intrebari.emplace_back(text, optiuni, raspunsCorect, dificult);
+            intrebari.push_back(std::make_shared<Intrebare>(text, optiuni, raspunsCorect, dificult));
         }
     }
 
     return intrebari;
 }
 
+// Demonstrație pentru Itemul 13: Smart Pointers (unique_ptr și shared_ptr)
+void demonstreazaItem13() {
+    std::cout << "=== Demonstratie Item 13: Smart Pointers ===\n";
 
-// Itemul 5: Ierarhia de clase 
+    // Utilizare std::unique_ptr pentru o întrebare
+    std::unique_ptr<Intrebare> intrebareUnica(new Intrebare(
+        "Care este capitala Italiei?",
+        std::vector<std::string>{"Roma", "Paris", "Berlin", "Madrid"},
+        0,
+        "Mediu"
+    ));
 
-void demonstreazaItem5() {
-    std::cout << "=== Demonstratie Item 5: Ierarhia de clase ===\n";
+    intrebareUnica->afiseazaIntrebare();
 
-    // Creăm un obiect de bază
-    Obiect obj("ObiectDeBaza");
-    obj.descrie();
+    // Utilizare std::shared_ptr pentru a partaja întrebare între mai multe instanțe
+    auto intrebarePartajata = std::make_shared<Intrebare>(
+        "Ce limbă se vorbește în Spania?",
+        std::vector<std::string>{"Engleză", "Franceză", "Spaniolă", "Italiană"},
+        2,
+        "Usor"
+    );
 
-    // Creăm un obiect derivat
-    ObiectDerivat objDer("ObiectDerivat", 42);
-    objDer.descrie();
+    auto copieShared = intrebarePartajata;
 
-    // Utilizăm polimorfismul (tratăm obiectul derivat ca un obiect de bază)
-    Obiect* objPtr = new ObiectDerivat("ObiectDerivatCaBaza", 99);
-    objPtr->descrie();
+    std::cout << "\nPrima instanță de shared_ptr:\n";
+    intrebarePartajata->afiseazaIntrebare();
 
-    // Distrugem obiectul derivat alocat dinamic
-    delete objPtr;
+    std::cout << "\nA doua instanță de shared_ptr (copiată):\n";
+    copieShared->afiseazaIntrebare();
 
-    std::cout << "=== Sfârșitul demonstratiei Item 5 ===\n\n";
+    std::cout << "\nNumăr de referințe active la obiectul shared_ptr: " << copieShared.use_count() << "\n";
+
+    std::cout << "=== Sfârșitul demonstratiei Item 13 ===\n\n";
 }
 
-
-//  Itemul 6: Dezactivarea copy/move constructor ===
-
-void demonstreazaItem6() {
-    std::cout << "=== Demonstratie Item 6: Dezactivarea copy/move constructor ===\n";
-
-    // Încărcăm întrebările din fișier
-    std::vector<Intrebare> intrebari = incarcaIntrebariDinFisier("Usor");
-
-    if (intrebari.empty()) {
-        std::cout << "Nu s-au găsit întrebări pentru nivelul de dificultate ales.\n";
-        return;
-    }
-
-    // Selectăm prima întrebare din vector
-    Intrebare intrebare1 = std::move(intrebari[0]);
-
-    // Mutăm întrebarea într-un alt obiect
-    Intrebare intrebare2 = std::move(intrebare1);
-
-    // Afișăm întrebarea mutată
-    std::cout << "Întrebarea mutată:\n";
-    intrebare2.afiseazaIntrebare();
-
-    // Afișăm starea întrebării sursă după mutare
-    std::cout << "Întrebarea sursă după mutare:\n";
-    intrebare1.afiseazaIntrebare();
-
-    std::cout << "=== Sfârșitul demonstratiei Item 6 ===\n";
+// Funcție pentru afișarea întrebărilor pe un thread separat (Item 14)
+void afiseazaIntrebarePeThread(const std::shared_ptr<Intrebare>& intrebare) {
+    intrebare->afiseazaIntrebare();
 }
 
+// Demonstrație pentru Itemul 14: Utilizarea Mutex-ului pentru Gestionarea Resurselor
+void demonstreazaItem14() {
+    std::cout << "=== Demonstratie Item 14: Mutex pentru Gestionarea Resurselor ===\n";
 
-void TriviaGame() {
-    std::cout << "=== TriviaGame ===\n";
+    // Creăm o întrebare partajată între mai multe thread-uri
+    auto intrebarePartajata = std::make_shared<Intrebare>(
+        "Care este capitala Franței?",
+        std::vector<std::string>{"Paris", "Londra", "Berlin", "Madrid"},
+        0,
+        "Usor"
+    );
 
-    std::string nivel;
-    std::cout << "Alegeți nivelul de dificultate (Usor, Mediu, Dificil): ";
-    std::cin >> nivel;
+    // Pornim două thread-uri care apelează funcția de afișare simultan
+    std::thread t1(afiseazaIntrebarePeThread, intrebarePartajata);
+    std::thread t2(afiseazaIntrebarePeThread, intrebarePartajata);
 
-    // Încărcăm întrebările din fișier
-    std::vector<Intrebare> intrebari = incarcaIntrebariDinFisier(nivel);
+    // Așteptăm ca thread-urile să termine execuția
+    t1.join();
+    t2.join();
 
-    if (intrebari.empty()) {
-        std::cout << "Nu s-au găsit întrebări pentru nivelul de dificultate ales.\n";
-    } else {
-        int scor = 0;
-        for (const auto& intrebare : intrebari) {
-            intrebare.afiseazaIntrebare();
-            int raspuns;
-            std::cout << "Răspunsul tău (1-4): ";
-            std::cin >> raspuns;
-
-            if (intrebare.esteCorect(raspuns)) {
-                std::cout << "Corect!\n";
-                scor++;
-            } else {
-                std::cout << "Greșit.\n";
-            }
-            std::cout << std::endl;
-        }
-        std::cout << "Scorul final: " << scor << " din " << intrebari.size() << std::endl;
-    }
+    std::cout << "=== Sfârșitul demonstratiei Item 14 ===\n\n";
 }
-
 
 int main() {
-    
-    // Demonstrează itemul 5: Ierarhia de clase
-    //demonstreazaItem5();
+    // Demonstrează itemul 13: Smart Pointers
+    demonstreazaItem13();
 
-    // Demonstrează itemul 6: Dezactivarea copy/move constructor
-    //demonstreazaItem6();
+    // Demonstrează itemul 14: Mutex pentru Gestionarea Resurselor
+   // demonstreazaItem14();
 
     // TriviaGame: Funcționalitatea principală
-    TriviaGame();
+    //TriviaGame();
 
     return 0;
 }
